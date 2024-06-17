@@ -15,4 +15,6 @@ const favoritesReducer = (state, action) => {
     }
 };
 
+
+
 export { initialState, favoritesReducer };

@@ -1,27 +1,29 @@
-
+import React, { useContext } from "react";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
-import { routes } from "./Components/utils/routes";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route  } from "react-router-dom";
 import Home from "./Routes/Home";
 import Contact from "./Routes/Contact"
 import Detail from "./Routes/Detail";
 import Favs from "./Routes/Favs";
+import { ContextGlobal } from "./Components/utils/global.context";
 
 
 
 function App() {
+  const {state} = useContext(ContextGlobal)
   return (
       <div className="App">
-        <Navbar/>
-        <Routes>
-          <Route path={routes.home} element={<Home />} />
-          <Route path={routes.contacto} element={<Contact />} />
-          <Route path={routes.detalle} element={<Detail />} />
-          <Route path={routes.destacados} element={<Favs />} />
-          <Route path="*" element={<h1>Error 404 - Page not found</h1>} />
-      </Routes>
-      <Footer/>
+        <Router>
+            <Navbar/>
+            <Routes>
+              <Route path={'/'} element={<Home />} />
+              <Route path={'/contacto'} element={<Contact />} />
+              <Route path={'/dentist/:id'} element={<Detail />} />
+              <Route path={'/favs'} element={<Favs />} />
+            </Routes>
+            <Footer/>
+          </Router>
       </div>
   );
 }
