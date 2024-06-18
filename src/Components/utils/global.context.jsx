@@ -1,7 +1,11 @@
 import { createContext, useReducer, useEffect, useMemo } from "react";
 import axios from "axios";
 
-export const initialState = {theme: " ", data: []}
+export const initialState = {
+  theme: " ", 
+  data: [], 
+  favoritos: JSON.parse(localStorage.getItem("favoritos")) || []
+}
 
 export const ContextGlobal = createContext(undefined);
 
@@ -11,6 +15,10 @@ const globalReducer = (state, action) => {
           return { ...state, theme: action.payload };
       case "SET_DATA":
           return { ...state, data: action.payload };
+      case 'ADD_FAV':
+          const nuevoFavorito = [...state.favoritos, action.payload];
+          localStorage.setItem('favs', JSON.stringify(nuevoFavorito));
+          return { ...state, favoritos: nuevoFavorito };    
       default:
           return state;
   }
@@ -20,8 +28,6 @@ export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(globalReducer, initialState);
   const url = "https://jsonplaceholder.typicode.com/users"
   
-  //console.log(state)
-
     useEffect(() => {
         axios
             .get(url)
@@ -35,7 +41,7 @@ export const ContextProvider = ({ children }) => {
       state, 
       dispatch, 
       toggleTheme: () => { 
-        dispatch({type: 'SET_THEME', payload: state.theme === '' ? "dark" : " "})
+        dispatch({type: 'SET_THEME', payload: state.theme === " " ? "dark" : " "})
       }
     }), [state]);
 

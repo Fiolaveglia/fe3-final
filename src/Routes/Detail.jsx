@@ -1,6 +1,8 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { ContextGlobal } from '../Components/utils/global.context';
 import axios from 'axios';
 
 
@@ -9,6 +11,8 @@ import axios from 'axios';
 const Detail = () => {
     const { id } = useParams();
     const [dentista, setDentista] = useState([]);
+    const {state} = useContext(ContextGlobal)
+
 
     useEffect(() => {
         axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
@@ -19,18 +23,17 @@ const Detail = () => {
     if (!dentista) {
         return <div>Cargando...</div>;
     }
-    // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
 
     return (
-        <>
-            <h1>Detalle del Dentista</h1>
-            <p>Nombre: {dentista.name}</p>
-            <p>Email: {dentista.email}</p>
-            <p>Teléfono: {dentista.phone}</p>
-            <p>Sitio Web: {dentista.website}</p>
-            {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
-            {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
-        </>
+        <div className={`${state.theme}`}>
+            <div className='card'>
+                <h1>Detalle del Dentista</h1>
+                <p>Nombre: {dentista.name}</p>
+                <p>Email: {dentista.email}</p>
+                <p>Teléfono: {dentista.phone}</p>
+                <p>Sitio Web: {dentista.website}</p>
+            </div>    
+        </div>
     );
 };
 

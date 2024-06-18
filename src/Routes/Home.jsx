@@ -7,11 +7,11 @@ import '../index.css'
 
 const Home = () => {
   const {state} = useContext(ContextGlobal)
-
-  const {data: dentista, theme} = state
+  
+  const {data: dentista} = state
 
   return (
-    <main className={`home ${theme}`} >
+    <main className={`home ${state.theme}`} >
       <h1>Home</h1>
       <div className='card-grid'>
         {/* Aqui deberias renderizar las cards */}

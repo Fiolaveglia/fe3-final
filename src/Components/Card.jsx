@@ -3,20 +3,18 @@ import { Link } from "react-router-dom";
 import { ContextGlobal } from "./utils/global.context";
 
 
-const Card = ({ dentista, dispatch }) => {
+const Card = ({ dentista }) => {
     const { id, name, username } = dentista;
-    const {state} = useContext(ContextGlobal)
+    const {state, dispatch} = useContext(ContextGlobal)
 
 
 
     const addFav = () => {
-        // Aqui iria la logica para agregar la Card en el localStorage
-
         dispatch({ type: 'ADD_FAV', payload: dentista });
     };
 
     return (
-        <div className="card">
+        <div className={`card ${state.theme}`}>
             {/* En cada card deberan mostrar en name - username y el id */}
             {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
             {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}

@@ -13,7 +13,7 @@ import { ContextGlobal } from "./Components/utils/global.context";
 function App() {
   const {state} = useContext(ContextGlobal)
   return (
-      <div className="App">
+      <div className={`App ${state.theme}`}>
         <Router>
             <Navbar/>
             <Routes>
