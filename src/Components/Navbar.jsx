@@ -9,10 +9,8 @@ const Navbar = () => {
     const {state, toggleTheme} = useContext(ContextGlobal)
 
     return ( 
-        <div className=''>
+        <div className={`navbar ${state.theme}`}>
             <nav>
-                {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
-                {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
                 <Link to='/'>
                     <h5>Home</h5>
                 </Link>

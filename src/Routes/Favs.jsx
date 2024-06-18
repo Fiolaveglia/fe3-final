@@ -11,9 +11,6 @@ const Favs = () => {
   const [favoritos, dispatch] = useReducer(favoritesReducer, initialState)
 
   useEffect(() => {
-    // const favs = JSON.parse(localStorage.getItem('favs')) || [];
-    // setFavoritos(favs);
-
     axios.get('https://jsonplaceholder.typicode.com/users')
       .then(response => setDentista(response.data))
       .catch(error => console.error('Error fetching data:', error));

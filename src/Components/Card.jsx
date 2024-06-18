@@ -5,8 +5,8 @@ import { ContextGlobal } from "./utils/global.context";
 
 const Card = ({ dentista, dispatch }) => {
     const { id, name, username } = dentista;
-    console.log("dentista Card: " + dentista)
     const {state} = useContext(ContextGlobal)
+
 
 
     const addFav = () => {
