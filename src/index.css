@@ -1,35 +1,30 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.favButton{
-  background-color: rgba(136, 136, 136, 0.116);
-  padding: 10px;
-  border: none;
-  width: 100%;
-  cursor: pointer;
-}
-
-h1{
-  text-align: center;
-}
-
 nav{
   display: flex;
-  width: 80vw;
-  justify-content: flex-start;
-  padding: 1rem;
+  justify-content: space-around;
+  align-items: center;
 }
-
+ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+li {
+  margin: 0 20px
+}
 a{
   color: #000;
   text-decoration: none;
@@ -39,7 +34,13 @@ a{
 a:hover{
   color: rgb(136, 136, 136);
 } 
-
+main {
+ 
+}
+h1{
+  text-align: center;
+  padding: 30px;
+}
 footer {
   display: flex;
   justify-content: center;
@@ -48,10 +49,9 @@ footer {
   position: relative;
   bottom: 0;
   width: 90%;
-  height: 40px;
+  height: 20px;
   margin-top: 2rem;
 }
-
 footer > img{
   width: 200px;
   margin: 0;
@@ -60,16 +60,46 @@ footer > p{
   margin: 0;
   padding-top: 0.7rem;
 }
-
 form{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  align-items: center;
   width: 300px;
   height: 100px;
   margin: 0 auto;
 }
+button {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  padding: 10px;
+  background-color: #effcfd;
+  border: none;
+  border: 1px solid #5f9ea0;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
 
+}
+/*Navbar Styles*/
+button.theme {
+    padding: 10px 15px;
+    background-color: #000;
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
+    -webkit-border-radius:5px;
+    border: none;
+}
+button.theme.dark {
+  background-color: #effcfd;
+}
+.logo span{
+  color:#5f9ea0 ;
+}
+/*Home Styles*/
 .card{
   display: flex;
   justify-content: space-around;
@@ -78,41 +108,114 @@ form{
   width: 200px;
   padding: 0.5rem 0.5rem 0 0.5rem;
   border: 0.5px solid rgb(136, 136, 136);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
-
 .card:hover{
   border: 0.5px solid rgb(206, 217, 142);
 }
-
+.favButton{
+  background-color: transparent;
+  padding: 10px;
+  border: none;
+  width: auto;
+  cursor: pointer;
+}
 .card-grid{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   gap: 1rem;
-  width: 90vw;
+  width: 56vw;
   height: auto;
   flex-wrap: wrap;
   margin: 0 auto;
 }
-
+.dentist-img {
+  width: 150px;
+  height: 150px;
+  margin-top: 20px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+h3.dentist-name {
+  text-align: center;
+  padding: 10px;
+}
+.dentist-links{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px auto;
+}
+/*Dentist Detail Styles*/
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 table {
- border-collapse: collapse;
+    border-collapse: collapse;
     border-spacing: 0;
-    width: 100%;
+    width: 80%;
     display: table;
     border: 1px solid #ccc;
-
 }
-
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
 }
-
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+button.back {
+  width: 150px;
+  margin: 30px auto;
+}
+/*Contact Styles*/
+.contact {
+  text-align: center;
+}
+.contact-tile{
+  margin: 20px 0;
+}
+.contact-text {
+  margin-bottom: 20px;
+}
+.contact-btn {
+  width: 100px;
+  padding: 5px 10px !important;
+  margin: 20px;
+  font-weight: 600;
+  color: #138083;
+}
+input{
+  width: 250px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #5f9ea0;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+::placeholder{
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 
+}
+
+
+
+
+
+/*Dark Mode Styles*/
 .dark{
   background-color: #12121296;
   color: white;

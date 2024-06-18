@@ -1,17 +1,18 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { ContextGlobal } from '../Components/utils/global.context';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
     const { id } = useParams();
     const [dentista, setDentista] = useState([]);
     const {state} = useContext(ContextGlobal)
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -24,15 +25,29 @@ const Detail = () => {
         return <div>Cargando...</div>;
     }
 
+
     return (
-        <div className={`${state.theme}`}>
-            <div className='card'>
-                <h1>Detalle del Dentista</h1>
-                <p>Nombre: {dentista.name}</p>
-                <p>Email: {dentista.email}</p>
-                <p>Teléfono: {dentista.phone}</p>
-                <p>Sitio Web: {dentista.website}</p>
-            </div>    
+        <div className={`detail ${state.theme}`}>
+            <h1>Detalle del Dentista</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Website</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{dentista.name}</td>
+                        <td>{dentista.email}</td>
+                        <td>{dentista.phone}</td>
+                        <td>{dentista.website}</td>
+                    </tr>
+                </tbody>
+                <button className="back" onClick={() => navigate(-1)}><FontAwesomeIcon icon={faChevronLeft} style={{color: '#5f9ea0', marginRight: '10px'}} />VOLVER ATRÁS</button>
+            </table>
         </div>
     );
 };

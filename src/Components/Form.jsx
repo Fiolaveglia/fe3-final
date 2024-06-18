@@ -1,5 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+
+
 
 const Form = () => {
 
@@ -33,25 +37,26 @@ const Form = () => {
 
     return (
         <>
-            <div>
+            <div className='contact-form'>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label>Nombre:</label>
                         <input
                             type="text"
                             value={persona.nombre}
                             onChange={handleName}
+                            placeholder="Nombre"
                         />
                     </div>
                     <div>
-                        <label>Email:</label>
                         <input
                             type="text"
                             value={persona.email}
                             onChange={handleEmail}
+                            placeholder="Email"
                         />
                     </div>
-                    <button type="submit">Enviar</button>
+                    <button className='contact-btn' type="submit">ENVIAR <FontAwesomeIcon icon={faPaperPlane} style={{color: '#5f9ea0', marginLeft:'5px'}} />
+                    </button>
                 </form>
                 {error && <p style={{ color: "red" }}>{error}</p>}
                 {exito && (

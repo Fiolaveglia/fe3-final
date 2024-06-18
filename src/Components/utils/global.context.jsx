@@ -41,7 +41,7 @@ export const ContextProvider = ({ children }) => {
       state, 
       dispatch, 
       toggleTheme: () => { 
-        dispatch({type: 'SET_THEME', payload: state.theme === " " ? "dark" : " "})
+        dispatch({type: 'SET_THEME', payload: state.theme === "" ? "dark" : ""})
       }
     }), [state]);
 
