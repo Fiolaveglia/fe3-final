@@ -7,20 +7,18 @@ import { faHeart, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 const Card = ({ dentista }) => {
     const { id, name, username } = dentista;
-    const {state, dispatch} = useContext(ContextGlobal)
+    const { dispatch} = useContext(ContextGlobal)
 
 
 
     const addFav = () => {
         dispatch({ type: 'ADD_FAV', payload: dentista });
+        alert(`Se agregó ${name} a favoritos`)
     };
 
     return (
-        <div className={`card ${state.theme}`}>
-            {/* En cada card deberan mostrar en name - username y el id */}
-            {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-            {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-            <img className='dentist-img'src={`${process.env.PUBLIC_URL}/images/doctor.jpg`} alt="Dentista"></img>
+        <div className='card'>
+            <img className='dentist-img'src='/images/doctor.jpg' alt="Dentista"></img>
             <h3 className="dentist-name">{name}</h3>
             <p>{username}</p>
             <div className="dentist-links">

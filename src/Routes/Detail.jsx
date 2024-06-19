@@ -1,8 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { ContextGlobal } from '../Components/utils/global.context';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
@@ -11,7 +9,6 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 const Detail = () => {
     const { id } = useParams();
     const [dentista, setDentista] = useState([]);
-    const {state} = useContext(ContextGlobal)
     const navigate = useNavigate();
 
 
@@ -27,7 +24,7 @@ const Detail = () => {
 
 
     return (
-        <div className={`detail ${state.theme}`}>
+        <div className='detail'>
             <h1>Detalle del Dentista</h1>
             <table>
                 <thead>
@@ -46,8 +43,8 @@ const Detail = () => {
                         <td>{dentista.website}</td>
                     </tr>
                 </tbody>
-                <button className="back" onClick={() => navigate(-1)}><FontAwesomeIcon icon={faChevronLeft} style={{color: '#5f9ea0', marginRight: '10px'}} />VOLVER ATRÁS</button>
             </table>
+            <button className="back" onClick={() => navigate(-1)}><FontAwesomeIcon icon={faChevronLeft} style={{color: '#5f9ea0', marginRight: '10px'}} />VOLVER ATRÁS</button>
         </div>
     );
 };

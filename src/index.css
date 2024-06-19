@@ -20,7 +20,7 @@ nav{
 ul {
   list-style: none;
   display: flex;
-  align-items: center;
+  align-items: center;margin-top: 20px;
 }
 li {
   margin: 0 20px
@@ -30,12 +30,16 @@ a{
   text-decoration: none;
   margin: 5px;
   cursor: pointer;
+  font-weight: 500;
 }
 a:hover{
   color: rgb(136, 136, 136);
-} 
-main {
- 
+}
+.nav-link>a.dark {
+  color: #fefefe !important;
+}
+main{
+  height: 89.5vh;
 }
 h1{
   text-align: center;
@@ -45,12 +49,7 @@ footer {
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
-  position: relative;
   bottom: 0;
-  width: 90%;
-  height: 20px;
-  margin-top: 2rem;
 }
 footer > img{
   width: 200px;
@@ -92,6 +91,14 @@ button.theme {
     -o-border-radius:5px;
     -webkit-border-radius:5px;
     border: none;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+button.theme:hover {
+  background-color: #414141;
 }
 button.theme.dark {
   background-color: #effcfd;
@@ -158,6 +165,7 @@ h3.dentist-name {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 89.5vh;
 }
 table {
     border-collapse: collapse;
@@ -181,6 +189,10 @@ button.back {
 /*Contact Styles*/
 .contact {
   text-align: center;
+  height: 87.3vh;
+}
+.contact-form{
+  height: 40vh;
 }
 .contact-tile{
   margin: 20px 0;
@@ -190,10 +202,19 @@ button.back {
 }
 .contact-btn {
   width: 100px;
-  padding: 5px 10px !important;
+  padding: 10px !important;
   margin: 20px;
   font-weight: 600;
   color: #138083;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+.contact-btn:hover {
+  color: #fefefe;
+  background: #138083;
 }
 input{
   width: 250px;
@@ -205,21 +226,30 @@ input{
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+  outline: none;
+}
+input:active{
+  border-color: #055052 !important;
 }
 ::placeholder{
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-
 }
-
-
-
-
-
+.alert-container {
+  width: 500px;
+  margin: 20px auto;
+}
+/*Favs Styles*/
+.favoritos{
+  height: 87.3vh;
+}
+.favoritos h1 {
+  margin: 20px 0;
+}
 /*Dark Mode Styles*/
 .dark{
   background-color: #12121296;
   color: white;
 }
-.dark > a {
+a.dark {
   color: white;
 }

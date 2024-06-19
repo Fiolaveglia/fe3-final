@@ -1,15 +1,20 @@
-import React, { useContext } from "react";
+import { useNavigate } from 'react-router-dom';
 import Form from '../Components/Form'
-import { ContextGlobal } from "../Components/utils/global.context";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+
 
 const Contact = () => {
-  const {state} = useContext(ContextGlobal)
+  const navigate = useNavigate();
+
 
   return (
-    <div className={`contact ${state.theme}`}>
-      <h1 className="contact-tile">Want to know more?</h1>
-      <p className="contact-text">Send us your questions and we will contact you</p>
+    <div className='contact'>
+      <h1 className="contact-tile">¿Querés saber más?</h1>
+      <p className="contact-text">Envíanos tus dudas y nos pondemos en contacto contigo!</p>
       <Form/>
+      <button className="back" onClick={() => navigate(-1)}><FontAwesomeIcon icon={faChevronLeft} style={{color: '#5f9ea0', marginRight: '10px'}} />VOLVER ATRÁS</button>
+
     </div>
   )
 }
