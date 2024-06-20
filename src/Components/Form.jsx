@@ -18,26 +18,44 @@ const Form = () => {
     const [exito, setExito] = useState(false);
     const [error, setError] = useState("");
     const [open, setOpen] = useState(false);
+    const [errors, setErrors] = useState({
+        nombre: false, 
+        email: false
+    })
 
-    const handleName = (e) =>
+    const handleName = (e) =>{
         setPersona({ ...persona, nombre: e.target.value });
-    const handleEmail = (e) =>
+    if(e.target.value.length > 5) {
+        setErrors({ ...errors, nombre: false });
+    }
+} 
+
+    const handleEmail = (e) =>{
         setPersona({ ...persona, email: e.target.value });
+        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value)) {
+            setErrors({ ...errors, email: false });
+        }
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const nombreValido = persona.nombre.length > 5;
         const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(persona.email);
 
-        setError(!nombreValido);
 
         if (nombreValido && emailValido) {
-            console.log("Formulario enviado: ", persona);
+            console.log("Formulario enviado: ", JSON.stringify(persona));
             setExito(true);
-            setError(false);
+            setError('');
+            setOpen(true);
         } else {
             setExito(false);
             setError("Por favor verifique su información nuevamente");
             setOpen(true);
+            setErrors({
+                nombre: !nombreValido,
+                email: !emailValido,
+            });
         }
     };
 
@@ -95,12 +113,17 @@ const Form = () => {
                             value={persona.nombre}
                             onChange={handleName}
                             placeholder="Nombre"
+                            style={{
+                                borderColor: errors.nombre ? 'red' : 'initial'}}
                         />
                         <input
                             type="text"
                             value={persona.email}
                             onChange={handleEmail}
                             placeholder="Email"
+                            style={{
+                                borderColor: errors.email ? 'red' : 'initial',
+                            }}
                         />
                     <button className='contact-btn' type="submit">ENVIAR <FontAwesomeIcon icon={faPaperPlane} style={{color: '#5f9ea0', marginLeft:'5px'}} />
                     </button>

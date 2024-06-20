@@ -18,9 +18,9 @@ function App() {
             <Navbar/>
             <Routes>
               <Route path={'/'} element={<Home />} />
-              <Route path={'/contacto'} element={<Contact />} />
               <Route path={'/dentist/:id'} element={<Detail />} />
               <Route path={'/favs'} element={<Favs />} />
+              <Route path={'/contacto'} element={<Contact />} />
             </Routes>
             <Footer/>
           </Router>
